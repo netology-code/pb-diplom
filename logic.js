@@ -37,8 +37,9 @@ function isWinningSituation(){
 
 function isWinningSeguence(r0, r1, ri, c0, c1, ci) {
 	let  firstSymbol = null;
+	
 	for ( let r = r0, c = c0;
-	Math.abs(r1-r)> 0 && Math.ads(c1-c)>0;
+	Math.abs(r1-r)> 0 && Math.abs(c1-c)>0;
 	r += ri, c+=c1
 	){
 		const symbol = gameField [r] [c];
