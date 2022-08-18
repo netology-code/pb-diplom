@@ -63,13 +63,14 @@ function startGame(){
 }
 
 function click(row, column) {
-	const playerSymbol = players [activePlayer];
-	gameField [row][column] = playerSymbol;
-	renderBoard(gameField);
-	if (isWinningSituation()){
-		showWinner(activePlayer);
-	} else {
-	activePlayer = (activePlayer + 1)%players.length;
-	}
+const playerSymbol = players[activePlayer];
+gameField[row][column] = playerSymbol;
+renderBoard(gameField);
+
+  if (isWinningSituation()) {
+  showWinner(activePlayer);
 }
+
+  activePlayer = (activePlayer + 1) % players.length;
+
 
