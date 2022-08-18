@@ -56,7 +56,7 @@ function isWinningSituation(){
 			isWinningSeguence(N-1, -1, -1, 0, N, 1)
 		){
 		return true;
-}
+		}
 	
 	return false;
 }
