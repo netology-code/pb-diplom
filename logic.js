@@ -1,4 +1,4 @@
-let players = ['x', 'o'];
+let players = ['x','o'];
 let activePlayer = 0;
 let gameField = null;
 
@@ -7,27 +7,22 @@ function creatGameField(){
 		['','',''],
 		['','',''],
 		['','','']
-	]
-};
+	];
+}
 
-function startGame(){
-	gameField = creatGameField(); 
-	activePlayer = 0;
-	renderBoard(gameField);
-};
+
 
 function isWinningSeguence(r0, r1, ri, c0, c1, ci) {
 	let  firstSymbol = null;
 	
-	for ( let r = r0, c = c0;
-	Math.abs(r1-r)> 0 && Math.abs(c1-c)>0;
-	r += ri, c+=c1
-	){
-		const symbol = gameField [r] [c];
+	for ( let r = r0, c = c0; Math.abs(r1-r)> 0 && Math.abs(c1-c)>0; r += ri, c+=c1){
+		
+		const symbol = gameField [r][c];
 		if (sumbol === ''){
 			return false;
 		}
-		if (sumbol === null){
+		
+		if (!firstSymbol){
 			firstSymbol = symbol;
 			continue;
 		}
@@ -61,6 +56,12 @@ function isWinningSituation(){
 	return false;
 }
 
+function startGame(){
+	gameField = creatGameField(); 
+	activePlayer = 0;
+	renderBoard(gameField);
+}
+
 function click(row, column) {
 	const playerSymbol = players [activePlayer];
 	gameField [row][column] = playerSymbol;
@@ -68,7 +69,7 @@ function click(row, column) {
 	if (isWinningSituation()){
 		showWinner(activePlayer);
 	} else {
-	activePlayer = (activePlayer + 1) % players.length;
+	activePlayer = (activePlayer + 1)%players.length;
 	}
 }
 
